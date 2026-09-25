@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;800&display=swap');
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #1a162b;
+  font-family: 'Nunito', sans-serif;
+  color: #333;
+}
+
+.handwritten {
+  font-family: 'Caveat', cursive;
+}
+
+/* Custom Heart Cursor */
+html, body, * {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24'><text y='18' font-size='18'>💖</text></svg>") 4 4, auto !important;
+}
+
+button, a, input, [role="button"] {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'><text y='20' font-size='20'>💕</text></svg>") 6 6, pointer !important;
+}
+
+/* Cassette Reel Rotation */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.spinning {
+  animation: spin 3s linear infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1.5deg); }
+}
+.floating {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* 3D Flip Book Styles */
+.book-perspective {
+  perspective: 1500px;
+}
+
+.book-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.book-card.flipping-next {
+  transform: rotateY(-180deg);
+}
+
+.book-card.flipping-prev {
+  transform: rotateY(180deg);
+}
+
+.book-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.book-face-back {
+  transform: rotateY(180deg);
+}
+
+.book-spine-shadow {
+  box-shadow: 
+    inset 12px 0 20px -8px rgba(0, 0, 0, 0.25),
+    0 16px 36px rgba(244, 114, 182, 0.35);
+}
